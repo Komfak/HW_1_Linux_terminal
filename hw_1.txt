@@ -52,8 +52,10 @@ $ find -name lesson_2.txt
 
 16) просмотреть содержимое в реальном времени (команда grep) изучите как она работает.
 $ grep -r -i kiselev
-lesson_1.txt:KISELEV
+lesson_1.txt:KISELEV (поиск по файлу)
 
+$ grep . 1.txt
+kiselev         (вывод содержимого файла)
 
 17) вывести несколько первых строк из текстового файла
 $ head -n5 1.txt
