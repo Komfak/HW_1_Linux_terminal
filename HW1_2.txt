@@ -170,8 +170,59 @@ tf_2.txt:“the seConD 2”
 
  29. Найти строки в файлах где есть комбинация букв “second” во всех папках ниже уровнем
  30. Найти только путь и название файла в строках которых есть комбинация букв “second” в текущей папке
+grep -l 'second' *
+grep: inner_dir_1: Is a directory
+tf_2.txt
+
  31. Найти все строки во всех файлах где нет комбинации “second”
+grep -rv 'second'
+inner_dir_1/tf_3.txt:tom
+inner_dir_1/tf_3.txt:dom
+inner_dir_1/tf_3.txt:grill
+inner_dir_1/tf_3.txt:trem
+inner_dir_1/tf_3.txt:grep
+inner_dir_1/tf_3.txt:“the sec 3”
+inner_dir_1/tf_3.txt:“the SeCoNd 2”
+inner_dir_1/tf_4.txt:1txt
+inner_dir_1/tf_4.txt:2txt
+inner_dir_1/tf_4.txt:3txt
+inner_dir_1/tf_4.txt:4txt
+inner_dir_1/tf_4.txt:5txt
+inner_dir_1/tf_4.txt:6json
+inner_dir_1/tf_4.txt:7json
+inner_dir_1/tf_4.txt:8json
+inner_dir_1/tf_4.txt:9json
+inner_dir_1/tf_4.txt:10json
+inner_dir_1/tf_4.txt:11pdf
+inner_dir_1/tf_4.txt:12pdf
+inner_dir_1/tf_4.txt:13pdf
+inner_dir_1/tf_4.txt:14pdf
+inner_dir_1/tf_4.txt:15pdf
+inner_dir_1/tf_5.txt:1pop
+inner_dir_1/tf_5.txt:2pop
+inner_dir_1/tf_5.txt:3pop
+inner_dir_1/tf_5.txt:4pop
+inner_dir_1/tf_5.txt:5pop
+inner_dir_1/tf_5.txt:6mop
+inner_dir_1/tf_5.txt:7mop
+inner_dir_1/tf_5.txt:8mop
+inner_dir_1/tf_5.txt:9mop
+inner_dir_1/tf_5.txt:10mop
+inner_dir_1/tf_5.txt:11gop
+inner_dir_1/tf_5.txt:12gop
+inner_dir_1/tf_5.txt:13gop
+tf_2.txt:- the first 1
+tf_2.txt:- the third 3
+tf_2.txt:“the sec 3”
+tf_2.txt:“the seConD 2”
+
  32. Найти только название и путь к файлам где нет комбинации “second”
+grep -rvl 'second'
+inner_dir_1/tf_3.txt
+inner_dir_1/tf_4.txt
+inner_dir_1/tf_5.txt
+tf_2.txt
+
  33. Вывести в терминал 4 последних строк любого текстового файла
  34. Вывести в терминал 4 первые строки любого текстового файла.
  35. Команда в одну строку. Создать папку и создать текстовый файл с содержиммым.
