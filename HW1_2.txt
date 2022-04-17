@@ -117,6 +117,7 @@ find . -name tf_3.txt
 ./inner_dir_1/tf_3.txt
 
  20. Отчистить файл tf_4.txt от содержимого без удаления самого файла.
+echo -n > tf_4.txt
 
  21. Найти путь к файлам у которых есть  “tf” в названии.
 find . -name '*tf*'
@@ -168,6 +169,7 @@ tf_2.txt:- the second 2
 tf_2.txt:“the seConD 2”
 
  29. Найти строки в файлах где есть комбинация букв “second” во всех папках ниже уровнем
+$ grep -r 'second' *
 
  30. Найти только путь и название файла в строках которых есть комбинация букв “second” в текущей папке
 grep -l 'second' *
@@ -238,9 +240,11 @@ head  -n4 tf_2.txt
 “the sec 3”
 
  35. Команда в одну строку. Создать папку и создать текстовый файл с содержиммым.
-mkdir inner_dir_2 | cat  > tf_6.txt
+$ cat  > tf_6.txt | mkdir inner_dir_4
 
  36. Команда в одну строку. Переместить в любую одну папку текстовые файлы у которых в содержимом есть слово “sec”
+$ find .  -name '*.txt' -exec grep -l 'sec' "{}" \; | xargs -I {} mv {} inner_dir_2
+
  37. Команда в одну строку. Скопировать в любую одну папку текстовые файлы у которых в содержимом есть слово “sec”
 find .  -name '*.txt' -exec grep -l 'sec' "{}" \; -exec cp "{}" inner_dir_2  \;
 ./inner_dir_1/tf_3.txt
@@ -248,6 +252,17 @@ find .  -name '*.txt' -exec grep -l 'sec' "{}" \; -exec cp "{}" inner_dir_2  \;
 cp: './inner_dir_2/tf_3.txt' and 'inner_dir_2/tf_3.txt' are the same file
 ./tf_2.txt
 
+другой вариант
+$ find .  -name '*.txt' -exec grep -l 'sec' "{}" \; | xargs -I {} cp {} inner_dir_3
+cp: './inner_dir_3/tf_2.txt' and 'inner_dir_3/tf_2.txt' are the same file
+cp: './inner_dir_3/tf_3.txt' and 'inner_dir_3/tf_3.txt' are the same file
+
+
  38. Команда в одну строку. Найти все строки c “sec” во всех текстовых файлах, скопировать и вставить эти строки в один новый созданный текстовый файл.
+ grep --line-buffered -r 'sec' >> tf_8.txt
+
  39. Команда в одну строку. Удалить текстовые файлы у которых в содержимом есть слово “sec”
+find .  -name '*.txt' -exec grep -l  'sec' "{}" \; | xargs -I {} rm {}
+
  40. Просто вывести в терминал строку “Good job!!”
+echo "Good job!!"
