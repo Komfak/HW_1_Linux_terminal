@@ -219,7 +219,7 @@ tf_2.txt:“the sec 3”
 tf_2.txt:“the seConD 2”
 
  32. Найти только название и путь к файлам где нет комбинации “second”
-grep -rvl 'second'
+grep -rxl 'second'
 inner_dir_1/tf_3.txt
 inner_dir_1/tf_4.txt
 inner_dir_1/tf_5.txt
